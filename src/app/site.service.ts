@@ -8,27 +8,27 @@ import { Site } from './site';
     providedIn: 'root'
 })
 export class SiteService{
-    
+
     private apiServerUrl=environment.apiBaseUrl;
     constructor(private http: HttpClient) {}
 
     public getSites():Observable<Site[]>{
-        return this.http.get<Site[]>('${this.apiServerUrl}/sites');
+        return this.http.get<Site[]>(`${this.apiServerUrl}/sites`);
     }
     public addSites(sites:Site[]):Observable<Site[]>{
-        return this.http.post<Site[]>('${this.apiServerUrl}/addSites',sites);
+        return this.http.post<Site[]>(`${this.apiServerUrl}/addSites`,sites);
     }
 
     public addSite(site:Site[]):Observable<Site>{
-        return this.http.post<Site>('${this.apiServerUrl}/addSite',site);
+        return this.http.post<Site>(`${this.apiServerUrl}/addSite`,site);
     }
 
     public updateSite(site:Site):Observable<Site>{
-        return this.http.put<Site>('${this.apiServerUrl}/updateSite',site);
+        return this.http.put<Site>(`${this.apiServerUrl}/updateSite`,site);
     }
-   
+
     public deleteSite(site:Site):Observable<Site>{
-        return this.http.delete<Site>('${this.apiServerUrl}/deleteSite');
+        return this.http.delete<Site>(`${this.apiServerUrl}/deleteSite`);
     }
 
 
